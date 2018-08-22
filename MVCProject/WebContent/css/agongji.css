@@ -1,0 +1,126 @@
+@CHARSET "UTF-8";
+/* admin_gongji_list.jsp UI */
+#aGongji_list{
+	width:580px; height:440px;
+	border:1px solid skyblue;
+	margin-top:30px; margin-left:auto;
+	margin-right:auto;
+	border-radius:20px; box-shadow:15px 15px 50px blue;
+}
+#aGongji_list .aGlist_title{
+	margin:20px 0 0 150px; width:220px;
+	background:pink; padding:3px; border-radius:15px;
+	text-align:center; font-size:19px;
+}
+#aGlist_count{
+	margin:10px 0 0 420px; background:pink;
+	padding:3px; border-radius:15px; text-align:center;
+	font-size:14px;width:110px;
+}
+#aGlist_t{
+	margin:10px 0 0 10px;
+	border-collapse:collapse;
+}
+#aGlist_t .no{
+	width:50px;text-align:center
+}
+#aGlist_t .title{
+	width:100px;text-align:center;
+}
+#aGlist_t .writer{width:100px;text-align:center;}
+#aGlist_t .date{width:100px; text-align:center;}
+#aGlist_t .hit{width:80px;text-align:center;}
+#aGlist_t .no{width:50px; text-align:center;}
+#aGlist_menu{
+	margin:20px 0 0 450px;
+}
+#aGlistFind_t{
+	margin:20px 0 0 120px;
+}
+#aGlist_t .title_box{
+	padding-left:10px; text-align:left;
+}
+#aGlist_paging{
+	margin:20px 0 0 200px;
+}
+
+/* admin_gongji_cont.jsp ui */
+#aGongji_cont{
+	width:400px; padding:10px;
+	border:1px solid skyblue; border-radius:15px;
+	box-shadow:15px 15px 50px blue;
+	margin-top:100px; margin-left:auto; margin-right:auto;
+}
+#aGongji_cont .aGongji_title{
+	margin:20px 0 0 120px; width:160px;
+	font-size:19px; padding:2px;text-align:center; 
+	background:pink; border-radius:15px;
+}
+#aGongji_t{
+	margin:20px 0 0 30px;
+}
+#aGongji_t th{
+	background:pink; border-radius:15px;
+}
+#aGcont_menu{
+	margin:20px 0 0 200px;
+}
+
+/* admin_gongji_write.jsp ui */
+#aGongji_write{
+	width:500px; height : auto;
+	margin-left:auto; margin-right:auto;
+	margin-top:20px;
+	border:1px solid blue;	
+	border-radius : 20px;
+	box-shadow : 10px 10px 50px blue;	
+}
+#aGongji_write .aGongjiw_title{ /* 타이틀 부분 디자인 */
+   margin : 20px 0 0 180px;
+   width : 150px;
+   background : skyblue;
+   border-radius : 15px;
+   text-align : center;    /* 텍스트 가운데 정렬 */
+   font-size : 20px;	
+}
+#aGongjiw_t{  /* 테이블 영역 디자인 부분 */
+   margin : 20px 0 0 30px;	
+}
+#aGongjiw_t th{  /* th 태그 디자인 부분 */
+	background : pink;
+	border-radius : 15px;
+	/* radius 뒤에 오는 수치가 클 수록 원형에 가까워진다. */
+}
+#aGongjiw_menu{
+	margin:20px 0 0 220px;
+}
+/* admin_gongji_edit.jsp ui */
+
+#aGongji_edit{
+	width:500px; height : auto;
+	margin-left:auto; margin-right:auto;
+	margin-top:20px;
+	border:1px solid blue;	
+	border-radius : 20px;
+	box-shadow : 10px 10px 50px blue;	
+}
+#aGongji_edit .aGedit_title{ /* 타이틀 부분 디자인 */
+   margin : 20px 0 0 150px;
+   width : 220px;
+   background : skyblue;
+   border-radius : 15px;
+   text-align : center;    /* 텍스트 가운데 정렬 */
+   font-size : 20px;	
+}
+#aGedit_t{  /* 테이블 영역 디자인 부분 */
+   margin : 20px 0 0 30px;	
+}
+#aGedit_t th{  /* th 태그 디자인 부분 */
+	background : pink;
+	border-radius : 15px;
+	/* radius 뒤에 오는 수치가 클 수록 원형에 가까워진다. */
+}
+#aGedit_menu{
+	margin:20px 0 0 220px;
+}
+

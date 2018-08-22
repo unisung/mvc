@@ -1,0 +1,109 @@
+﻿@CHARSET "UTF-8";
+/* 자료실 입력 & 수정 폼  UI */
+#write_wrap{
+	width : 500px; height : auto;
+	margin-top : 50px;
+	margin-left:auto; margin-right:auto;
+	border : 1px solid blue;
+	border-radius : 20px;
+	box-shadow : 10px 10px 60px blue;
+}
+#write_wrap .write_title{
+	margin : 30px 0 0 180px;
+	width : 160px; padding : 3px;
+	text-align : center;
+	background : green;
+	color : #ffffff;
+	border-radius : 15px;
+	font-size : 20px;
+}
+#write_t{
+	margin:18px 0 0 40px;
+}
+#write_t th{
+	background : pink;
+	border-radius : 15px;
+}
+.input_box:hover{ /* 텍스트 상자에 마우스 오버시 */
+    background : #ccc; 	
+}
+#write_menu{
+	margin:20px 0 0 200px;
+}
+.input_button:hover{ /* 버튼에 마우스 오버시 */
+   cursor : hand; cursor : pointer;
+   background : #ccc;
+   border-radius : 15px; 
+   padding : 3px;
+   font-weight : bold;
+   border : 1px solid red;	
+}
+
+/* 자료실 목록 UI */
+#bbslist_t{  /* 테이블 영역 디자인 부분 */
+   margin : 50px 0 0 100px;
+   width:520px; height : 400px;
+   margin-left:auto; margin-right:auto;
+   background : #FFFFF0;
+   padding:20px;
+   border:1px solid #005D00; 
+   border-radius : 15px;
+   box-shadow : 20px 20px 100px #00A500;	
+}
+
+/* 자료실 내용보기 UI */
+#bbscont_wrap{   /* 전체 레이아웃 디자인 */
+	width:400px; padding : 20px;
+	margin-top : 40px;
+	margin-left : auto; margin-right:auto;
+	border:1px solid #005D00; 
+    border-radius : 15px;
+    box-shadow : 20px 20px 100px #00A500;	
+}
+#bbscont_wrap .bbscont_title{ /* 제목 디자인 */
+	margin:10px 0 0 120px;
+	width : 180px; padding : 3px;
+	text-align : center; font-size : 20px;
+	border-radius : 20px; background : skyblue;	
+}
+#bbscont_t{ /* 테이블 영역 */
+	margin : 20px 0 0 30px;
+}
+#bbscont_t th{
+	background : pink;
+	border-radius : 20px;
+}
+#bbscont_menu{  /* 버튼 영역 */
+	margin : 20px 0 0 100px;
+}
+/* 자료실 삭제 UI  */
+#bbsdel_wrap{
+	width:250px; padding : 10px;
+	margin-top : 40px;
+	margin-left : auto; margin-right:auto;
+	border:1px solid red;
+	border-radius : 20px;
+	box-shadow : 15px 15px 15px red;
+}
+#bbsdel_wrap .bbsdel_title{
+	margin:10px 0 0 50px;
+	width : 120px; padding : 3px;
+	text-align : center; font-size : 20px;
+	border-radius : 20px; background : skyblue;		
+}
+#bbsdel_t{ /* 테이블 영역 */
+	margin : 20px 0 0 10px;
+}
+#bbsdel_t th{	
+	background : pink;
+	border-radius : 20px;
+}
+#bbsdel_menu{  /* 버튼 영역 */
+	margin : 20px 0 0 80px;
+}
+
+
+
+
+
+
