@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!-- admin_login.jsp -->
-<%@ include file="../include/header.jsp" %>
+<%@ include file="../include/header.jsp" %><!-- header부분 -->
 <div class="clear"></div>
 <div id="article">
-  <%@ include file="../include/login.jsp" %>
+  <%@ include file="../include/login.jsp" %><!-- aside부분 -->
 <div id="article_c">
    <div id="aIndex_wrap">
     <h2 class="aIndex_title">관리자 로그인</h2>

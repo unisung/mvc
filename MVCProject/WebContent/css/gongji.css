@@ -90,7 +90,7 @@ a:hover{
 	padding-left:10px; text-align:left;
 }
 #Glist_paging{
-	margin:20px 0 0 200px;
+	margin:0 auto;/* top right bottom left */
 }
 
 /* gongji_cont.jsp ui */

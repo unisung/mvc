@@ -2,13 +2,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="styleesheet" type="text/css" href="../css/main.css"/>
-<link rel="styleesheet" type="text/css" href="./css/board.css"/>
-<link rel="styleesheet" type="text/css" href="./css/member.css"/>
-<link rel="styleesheet" type="text/css" href="./css/bbs.css"/>
-<link rel="styleesheet" type="text/css" href="./css/index.css"/>
-<link rel="styleesheet" type="text/css" href="./css/admin.css"/>
-<link rel="styleesheet" type="text/css" href="./css/gongji.css"/>
+<link rel="stylesheet" type="text/css" href="./css/main.css"/>
+<link rel="stylesheet" type="text/css" href="./css/board.css"/>
+<link rel="stylesheet" type="text/css" href="./css/member.css"/>
+<link rel="stylesheet" type="text/css" href="./css/bbs.css"/>
+<link rel="stylesheet" type="text/css" href="./css/index.css"/>
+<link rel="stylesheet" type="text/css" href="./css/admin.css"/>
+<link rel="stylesheet" type="text/css" href="./css/gongji.css"/>
 <script src="./js/jquery-3.js"></script>
 <script src="./js/board.js"></script>
 <script src="./js/bbs.js"></script>

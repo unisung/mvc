@@ -34,13 +34,12 @@ public class FrontController extends HttpServlet {
 		Action action=null;
 		ActionForward forward=null;
 		
-		System.out.println("RequestURI="+RequestURI);
-		System.out.println("contextPath="+contextPath);
-		System.out.println("command="+command);
 		//command 프로퍼티 파일 읽어 들이기
 		Properties prop=new Properties();
 		FileInputStream fis = 
-new FileInputStream("C:\\jspWorkspace\\MVCProject\\src\\com\\controller\\action\\command.properties");
+/*new FileInputStream("C:\\jspWorkspace\\MVCProject\\src\\com\\controller\\action\\command.properties");*/
+new FileInputStream("C:\\Users\\Administrator\\mvcgit\\MVCProject\\WebContent\\resources\\command.properties");
+		//command.properties로 부터 Propterty객체로 읽어들이기
 		prop.load(fis);
 		fis.close();
 		String value = prop.getProperty(command).trim();
@@ -54,9 +53,10 @@ new FileInputStream("C:\\jspWorkspace\\MVCProject\\src\\com\\controller\\action\
 					String url_2=st.nextToken();
 					System.out.println("url_1="+url_1);
 					System.out.println("url_2="+url_2);
-					Class url=Class.forName(url_2);
-					action = (Action)url.newInstance();//인터페이스 타입 변환
+					Class url=Class.forName(url_2); // 클래스 로드
+					action = (Action)url.newInstance();//인터페이스 타입 변환 url=new com.admin.action.AdminLogoutOkAction();
 					//생성된 action인스턴스의 execute()메소드 실행
+					//메소드의 다형성 -메소드명은 동일(execute) 실행결과는 instance에 따라 달라짐
 				     forward=action.execute(request, response);	
 		}catch(Exception e) {
 				e.printStackTrace();

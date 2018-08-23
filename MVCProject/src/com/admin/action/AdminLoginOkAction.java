@@ -31,7 +31,7 @@ public class AdminLoginOkAction implements Action {
 			 session.setAttribute("admin_id", admin_id);
 			 ActionForward forward=new ActionForward();
 			 forward.setRedirect(false);
-			 forward.setPath("./admin/admin_main.jsp");
+			 forward.setPath("./admin/admin_main.jsp");//.현재위치, ..상위 위치
 			 return forward;
 		 }else if(re==-1) {
 			 out.print("<script>");

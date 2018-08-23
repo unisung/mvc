@@ -12,5 +12,6 @@ insert into admin
      values(admin_no_seq.nextval,'admin','admin');
 -- 레코드 조회
 select * from admin;
+delete from admin where admin_no=2;
 
 commit work;
