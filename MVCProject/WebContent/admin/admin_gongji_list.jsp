@@ -1,18 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.gongji.model.GongjiBean"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>       
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/admin.css">
-<link rel="stylesheet" type="text/css" href="./css/gongji.css">
-
+<link rel="stylesheet" type="text/css" href="./css/agongji.css">
 <script src="./js/jquery-3.js"></script>
 </head>
 <body>
@@ -124,7 +120,7 @@ function pwd_find(){
  	       ${g.gongji_no}
  	   </td>
  	   <td>
- 	   	<a href="gongji_cont.do?gongji_no=${g.gongji_no}&page=${page}"
+ 	   	<a href="admin_gongji_cont.do?gongji_no=${g.gongji_no}&page=${page}"
  	   	   onfocus="this.blur();">${g.gongji_title}</a>
  	   </td>
  	   <td>
@@ -150,32 +146,36 @@ function pwd_find(){
  	  </c:if>
  	</table>
  	<div id="Glist_paging">
- 	<c:if test="${nowpage<=1}">
+ 	<c:if test="${page<=1}">
  		[이전]
  	</c:if>
- 	<c:if test="${nowpage>1}">
- 	  <a href="gongji_list.do?page=${nowpage-1}" onfocus="this.blur();">[이전]</a>&nbsp;
+ 	<c:if test="${page>1}">
+ 	  <a href="admin_gongji_list.do?page=${page-1}" onfocus="this.blur();">[이전]</a>&nbsp;
  		[이전]
  	</c:if>
  	<c:forEach var="i" begin="${startpage}" end="${endpage>=maxpage?maxpage:endpage}">
- 	  <c:if test="${i==nowpage}">[${i}] </c:if>
- 	  <c:if test="${i!=nowpage}">
- 	  	<a href="gongji_list.do?page=${i}" onfocus="this.blur()">[${i}]</a>
+ 	  <c:if test="${i==page}">[${i}] </c:if>
+ 	  <c:if test="${i!=page}">
+ 	  	<a href="admin_gongji_list.do?page=${i}" onfocus="this.blur()">[${i}]</a>
  	  </c:if>
  	</c:forEach>
  	
- 	 <c:if test="${nowpage>=maxpage}">
+ 	 <c:if test="${page>=maxpage}">
  		[다음]
  	</c:if>
- 	<c:if test="${nowpage<maxpage}">
- 	  <a href="gongji_list.do?page=${nowpage+1}" onfocus="this.blur();">[다음]</a>&nbsp;
+ 	<c:if test="${page<maxpage}">
+ 	  <a href="admin_gongji_list.do?page=${page+1}" onfocus="this.blur();">[다음]</a>&nbsp;
  		[이전]
  	</c:if>
  	</div>
  	<div id="aGlist_menu">
  	 <a href="admin_gongji_write.do" onfocus="this.blur();">[공지작성]</a>
  	</div>
- 	
+ 	현재페이지:${page}<br>
+ 	max페이지:${maxpage }<br>
+ 	시작페이지:${startpage }<br>
+ 	건수:${listcount }<br>
+ 	마지막페이지:${endpage }<br>
  	<!--  -->
  	<div id="aGlist_find">
  	 <form method="get" action="admin_gongji_find.do" 
@@ -196,7 +196,6 @@ function pwd_find(){
  	</div>
  </div>
  </div>
-
 <!-- 본문 끝. -->
 <div class="clear"></div>
 <div id="footer">

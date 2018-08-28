@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="com.gongji.model.GongjiBean"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"%>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
-<link rel="stylesheet" type="text/css" href="./css/gongji.css">
-
+<link rel="stylesheet" type="text/css" href="./css/admin.css">
+<link rel="stylesheet" type="text/css" href="./css/agongji.css">
 <script src="./js/jquery-3.js"></script>
 </head>
 <body>
@@ -101,32 +96,52 @@ function pwd_find(){
 
 </div>
 <div id="article_c">
-<div id="uGongji_wrap">
-<c:if test="${not empty gongji}">
- <h2 class="uGongji_title">사용자 공지 보기</h2>
- <table id="uGongji_t">
- <tr>
-  <th>공지제목</th>
-  <td>${gongji.gongji_title}</td>
- </tr>
- <tr>
-  <th>공지내용</th>
-  <td>${gongji.gongji_cont}</td>
- </tr>
- <tr>
-  <th>조회수</th>
-  <td>${gongji.gongji_hit}</td>
- </tr>
- </table>
- 
- </c:if>
- 
- <div id="uGongji_menu">
-  <input type="button" value="목록" class="gbutton_b" 
-                 onclick="location.href='gongji_list.do?page=${page}'"/>
- </div>
- 
+<!-- 본문 내용 -->
+<div id="aMain_cont">
+<div id="aGongji_write">
+  <h2 class="aGongjiw_title">관리자 공지사항</h2>
+  <form action="admin_gongji_write_ok.do" 
+                  onsubmit="return aGongji_write();">
+   <table id="aGongjiw_t">
+    <tr>
+    <th>작성자</th>
+    <td>
+     <input name="gongji_name" id="gongji_name"
+     		 size="14" class="admin_box">	 
+    </td>
+    </tr>
+    <tr>
+    <th>공지제목</th>
+    <td>
+     <input name="gongji_title" id="gongji_title"
+     		 size="14" class="admin_box">	 
+    </td>
+    </tr>
+   <tr>
+    <th>공지내용</th>
+    <td>
+     <textarea name="gongji_cont" id="gongji_cont" rows="9" cols="40"></textarea>	 
+    </td>
+    </tr>
+    
+    
+    <tr>
+    <th>비밀번호</th>
+    <td>
+     <input name="gongji_pwd" id="gongji_pwd" type="password"
+     		 size="14" class="admin_box">	 
+    </td>
+    </tr>
+   </table>                  
+  <div id="aGongjiw_menu">
+   <input type="submit" value="저장" class="admin_b">
+   <input type="reset" value="취소" class="admin_b" 
+              onclick="$('#gongji_name').focus();">
+  </div>
+  </form>
 </div>
+</div>	
+	
 </div>
 <!-- 본문 끝. -->
 <div class="clear"></div>

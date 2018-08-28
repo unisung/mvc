@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminGongji">
+<!--  List<Member>  -->
+<resultMap id="resultAdminGongji" type="Gongji">
+<result property="gongji_no" column="gongji_no"/>
+<result property="gongji_name" column="gongji_name"/>
+<result property="gongji_title" column="gongji_title"/>
+<result property="gongji_cont" column="gongji_cont"/>
+<result property="gongji_pwd" column="gongji_pwd"/>
+<result property="gongji_hit" column="gongji_hit"/>
+<result property="gongji_regdate" column="gongji_regdate"/>
+</resultMap>
+
+<insert id="insertAdminGongji" parameterType="Gongji">
+insert into gongji(gongji_no,gongji_name,gongji_title,gongji_cont,gongji_pwd,gongji_regdate)
+values(gongji_seq.nextval,#{gongji_name},#{gongji_title},#{gongji_cont},#{gongji_pwd},sysdate)
+</insert>
+
+<select id="selectGongjiList" resultMap="resultAdminGongji" 
+                   parameterType="com.admin.model.AdminGongjiBean">
+select gongji_no,
+       gongji_name,
+       gongji_title,
+       gongji_cont,
+       gongji_pwd,
+       gongji_hit,
+       gongji_regdate
+  from 
+(select rownum rn,a.*
+ from 
+(select * from gongji)a )
+where rn between #{startrow} and #{endrow}
+</select>
+<select id="selectListCount" resultType="int">
+ select count(*) from gongji
+</select>
+
+</mapper>

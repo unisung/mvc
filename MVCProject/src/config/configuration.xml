@@ -6,6 +6,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <properties resource="config/dbconnect.properties"/>
 <typeAliases>
   <typeAlias alias="Admin" type="com.admin.model.AdminDao"/>
+  <typeAlias alias="Gongji" type="com.gongji.model.GongjiBean"/>
 </typeAliases>
 
 <environments default="development">
@@ -23,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <mappers>
 <mapper resource="sqlMapper/Admin.xml"/>
 <mapper resource="sqlMapper/Gongji.xml"/>
+<mapper resource="sqlMapper/AdminGongji.xml"/>
 </mappers>
 </configuration>
 
