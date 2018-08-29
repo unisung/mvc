@@ -1,0 +1,31 @@
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI where gongji_title like '%공지%') gongji )
+where rn between 8 and 14
+;
+
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI where GONGJI_cont like '%공지%') gongji)
+where rn between 1 and 100
+;
+
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI 
+ where (GONGJI_cont like '%내용%') 
+                     or (gongji_title like '%내용%') ) gongji)
+where rn between 8 and 14
+;

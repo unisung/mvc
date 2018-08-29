@@ -6,6 +6,7 @@
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/admin.css">
+<link rel="stylesheet" type="text/css" href="./css/agongji.css">
 <script src="./js/jquery-3.js"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
 <div id="top_menu">
 <ul>
 <li>
-<a href="admin_gongji_list.do" onfocus="this.blur()">공지사항</a>
+<a href="gongji_list.do" onfocus="this.blur()">공지사항</a>
 </li>
 <li>
 <a href="board_list.do" onfocus="this.blur()">게시판</a>
@@ -32,7 +33,7 @@
 <a href="bbs_list.do" onfocus="this.blur()">자료실</a>
 </li>
 <li>
-<a href="admin_member_list.do" onfocus="this.blur()">회원관리</a>
+<a href="admin_login.do" onfocus="this.blur()">관리자</a>
 </li>
 </ul>
 </div>
@@ -40,10 +41,13 @@
 <div id="top_login">
 <ul>
  <li>
-  <a href="./admin_main.do" onfocus="this.blur()">관리자 홈</a>
+  <a href="./index.jsp" onfocus="this.blur()">홈</a>
  </li>
  <li>
-  <a href="./admin_logout_ok.do" onfocus="this.blur()"><font color="green">로그아웃</font></a>
+  <a href="member_Login.do" onfocus="this.blur()">로그인</a>
+ </li>
+ <li>
+  <a href="member_Join.do" onfocus="this.blur()">회원가입</a>
  </li>
 </ul>
 </div>
@@ -92,8 +96,54 @@ function pwd_find(){
 
 </div>
 <div id="article_c">
-	<p class="article_cont">
-	<img src="./images/bg.png" border="0" width="600"/></p>
+<!-- 본문 내용 -->
+<div id="aMain_cont">
+<div id="aGongji_write">
+  <h2 class="aGongjiw_title">관리자 공지사항 수정</h2>
+  <form action="admin_gongji_edit_ok.do" 
+                  onsubmit="return aGongji_write();">
+   <input type="hidden" name="page" value="${page}">
+   <input type="hidden" name="gongji_no" value="${g.gongji_no}">                  
+   <table id="aGongjiw_t">
+    <tr>
+    <th>작성자</th>
+    <td>
+     <input name="gongji_name" id="gongji_name"
+     		 size="14" class="admin_box" value="${g.gongji_name}" disabled="disabled" >	 
+    </td>
+    </tr>
+    <tr>
+    <th>공지제목</th>
+    <td>
+     <input name="gongji_title" id="gongji_title"
+     		 size="14" class="admin_box" value="${g.gongji_title}">	 
+    </td>
+    </tr>
+   <tr>
+    <th>공지내용</th>
+    <td>
+     <textarea name="gongji_cont" id="gongji_cont" rows="9" cols="40">${g.gongji_cont}</textarea>	 
+    </td>
+    </tr>
+    
+    
+    <tr>
+    <th>비밀번호</th>
+    <td>
+     <input name="gongji_pwd" id="gongji_pwd" type="password"
+     		 size="14" class="admin_box">	 
+    </td>
+    </tr>
+   </table>                  
+  <div id="aGongjiw_menu">
+   <input type="submit" value="저장" class="admin_b">
+   <input type="reset" value="취소" class="admin_b" 
+              onclick="$('#gongji_name').focus();">
+  </div>
+  </form>
+</div>
+</div>	
+	
 </div>
 <!-- 본문 끝. -->
 <div class="clear"></div>

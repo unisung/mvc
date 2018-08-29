@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="site">
-<h3 align="center">사용지 단 페이지 영역</h3>
+<h3 align="center">사용자 단 페이지 영역</h3>
 </div>
 <div id="main_wrap">
 <!-- 상단header -->

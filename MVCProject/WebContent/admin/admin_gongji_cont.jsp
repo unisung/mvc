@@ -6,6 +6,7 @@
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
 <link rel="stylesheet" type="text/css" href="./css/admin.css">
+<link rel="stylesheet" type="text/css" href="./css/agongji.css">
 <script src="./js/jquery-3.js"></script>
 </head>
 <body>
@@ -92,8 +93,32 @@ function pwd_find(){
 
 </div>
 <div id="article_c">
-	<p class="article_cont">
-	<img src="./images/bg.png" border="0" width="600"/></p>
+<div id="aGongji_wrap">
+<c:if test="${not empty gongji}">
+ <h2 class="aGongji_title">사용자 공지 보기</h2>
+ <table id="aGongji_t">
+ <tr>
+  <th>공지제목</th>
+  <td>${gongji.gongji_title}</td>
+ </tr>
+ <tr>
+  <th>공지내용</th>
+  <td>${gongji.gongji_cont}</td>
+ </tr>
+ <tr>
+  <th>조회수</th>
+  <td>${gongji.gongji_hit}</td>
+ </tr>
+ </table>
+ 
+ </c:if>
+ 
+ <div id="aGongji_menu">
+  <input type="button" value="목록" class="gbutton_b" 
+                 onclick="location.href='admin_gongji_list.do?page=${page}'"/>
+ </div>
+ 
+</div>
 </div>
 <!-- 본문 끝. -->
 <div class="clear"></div>

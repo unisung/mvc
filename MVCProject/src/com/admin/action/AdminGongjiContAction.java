@@ -1,4 +1,4 @@
-package com.gongji.action;
+package com.admin.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -8,7 +8,7 @@ import com.controller.action.ActionForward;
 import com.gongji.model.GongjiBean;
 import com.gongji.model.GongjiDao;
 
-public class GongjiContAction implements Action {
+public class AdminGongjiContAction implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         GongjiDao gongjidao = GongjiDao.getInstance();

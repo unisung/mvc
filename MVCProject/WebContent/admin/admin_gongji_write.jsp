@@ -24,7 +24,7 @@
 <div id="top_menu">
 <ul>
 <li>
-<a href="gongji_list.do" onfocus="this.blur()">공지사항</a>
+<a href="admin_gongji_list.do" onfocus="this.blur()">공지사항</a>
 </li>
 <li>
 <a href="board_list.do" onfocus="this.blur()">게시판</a>
@@ -33,7 +33,7 @@
 <a href="bbs_list.do" onfocus="this.blur()">자료실</a>
 </li>
 <li>
-<a href="admin_login.do" onfocus="this.blur()">관리자</a>
+<a href="admin_member_list.do" onfocus="this.blur()">회원관리</a>
 </li>
 </ul>
 </div>
@@ -41,13 +41,10 @@
 <div id="top_login">
 <ul>
  <li>
-  <a href="./index.jsp" onfocus="this.blur()">홈</a>
+  <a href="./admin_main.do" onfocus="this.blur()">관리자 홈</a>
  </li>
  <li>
-  <a href="member_Login.do" onfocus="this.blur()">로그인</a>
- </li>
- <li>
-  <a href="member_Join.do" onfocus="this.blur()">회원가입</a>
+  <a href="./admin_logout_ok.do" onfocus="this.blur()"><font color="green">로그아웃</font></a>
  </li>
 </ul>
 </div>

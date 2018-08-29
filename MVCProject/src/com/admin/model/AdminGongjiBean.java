@@ -10,7 +10,15 @@ public class AdminGongjiBean {
 	private String gongji_regdate;
 	private int startrow;
 	private int endrow;
+	private String find_name;
 	
+	
+	public String getFind_name() {
+		return find_name;
+	}
+	public void setFind_name(String find_name) {
+		this.find_name = find_name;
+	}
 	public int getGongji_no() {
 		return gongji_no;
 	}

@@ -11,7 +11,7 @@ public class ListAction implements Action {
 	   //이동페이지에서 출력할 객체를 request에 저장
 	   request.setAttribute("gildong", msg);
 	   //이동할 페이지 설정
-	 
+	  
 		return  "list";
 	}
 

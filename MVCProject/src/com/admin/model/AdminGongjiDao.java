@@ -66,18 +66,15 @@ public class AdminGongjiDao implements AdminGongjiService {
 	}
 	@Override
 	public GongjiBean getGongjiCont(int gongji_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("selectGongjiContent", gongji_no);
 	}
 	@Override
 	public GongjiBean getCongji(int gongji_no) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("selectGongjiCont", gongji_no);
 	}
 	@Override
 	public int updateMember(GongjiBean bean) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update("updateGongjiContent", bean);
 	}
 	@Override
 	public void deleteGongji(int gongji_no) throws Exception {
@@ -95,8 +92,20 @@ public class AdminGongjiDao implements AdminGongjiService {
 	}
 	@Override
 	public List<GongjiBean> getGongjiSearch(int page, int limit, String find_name, String find_field) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		int startrow = (page-1)*limit+1;//해당 페이지의 시작번호
+		int endrow = page*limit;//끝번호
+		AdminGongjiBean ab = new AdminGongjiBean();
+		ab.setStartrow(startrow);
+		ab.setEndrow(endrow);
+		ab.setFind_name("%"+find_name+"%");
+		
+		if(find_field.equals("gongji_title")){
+			return session.selectList("selectFindListTitle", ab);
+		}else if(find_field.equals("gongji_cont")) {
+			return session.selectList("selectFindListCont", ab);
+		}else {
+			return session.selectList("selectFindListAll", ab);
+		}
 	}
 
 }

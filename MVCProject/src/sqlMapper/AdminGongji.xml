@@ -39,4 +39,55 @@ where rn between #{startrow} and #{endrow}
  select count(*) from gongji
 </select>
 
+<select id="selectGongjiContent" parameterType="int" resultType="Gongji">
+  select * from gongji where gongji_no=#{gongji_no}
+</select>
+<select id="selectGongjiCont" parameterType="int" resultType="Gongji">
+  select * from gongji where gongji_no=#{gongji_no}
+</select>
+<update id="updateGongjiContent" parameterType="Gongji">
+  update gongji 
+     set gongji_title=#{gongji_title}, 
+         gongji_cont=#{gongji_cont}
+   where gongji_no=#{gongji_no}
+</update>
+
+<select id="selectFindListTitle"
+       parameterType="com.admin.model.AdminGongjiBean" 
+     resultMap="resultAdminGongji">
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI where gongji_title like #{find_name}) gongji )
+where rn between #{startrow} and #{endrow}
+</select>
+<select id="selectFindListCont"
+       parameterType="com.admin.model.AdminGongjiBean" 
+     resultMap="resultAdminGongji">
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI where gongji_cont like #{find_name}) gongji )
+where rn between #{startrow} and #{endrow}
+</select>
+
+<select id="selectFindListAll"
+       parameterType="com.admin.model.AdminGongjiBean" 
+     resultMap="resultAdminGongji">
+select gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from
+(select rownum rn, gongji_no, gongji_name, gongji_title,gongji_cont,
+        gongji_pwd, gongji_hit, gongji_regdate
+ from 
+(select * from GONGJI where (gongji_cont like #{find_name}) 
+                         or (gongji_title like #{find_name}) ) gongji )
+where rn between #{startrow} and #{endrow}
+</select>
 </mapper>
