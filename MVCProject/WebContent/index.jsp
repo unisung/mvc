@@ -9,7 +9,7 @@
 </head>
 <body>
 <div id="site">
-<h3 align="center">사용지 단 페이지 영역</h3>
+<h3 align="center">사용자 단 페이지 영역</h3>
 </div>
 <div id="main_wrap">
 <!-- 상단header -->
@@ -59,7 +59,7 @@ function login_chk(){
 		alert('아이디를 입력하세요');
 		return false;
 	}
-	if($.trim($('#pwd').val()=="")){
+	if($.trim($('#pwd').val())==""){
 		alert('비번을 입력하세요');
 		$('#pwd').val('').focus();//공백처리 후 포커스
 		return false;

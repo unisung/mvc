@@ -1,11 +1,11 @@
 /* board_write.jsp 와   board_edit.jsp*/
 
 function board_check(){
-	if($.trim($("#board_name").val())==""){
+/*	if($.trim($("#board_name").val())==""){
 		alert("글쓴이를 입력하세요.");
 		$("#board_name").val("").focus();
 		return false;
-	}
+	}*/
 	if($.trim($("#board_title").val())==""){
 		alert("글 제목을 입력하세요.");
 		$("#board_title").val("").focus();

@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="site">
-<h3 align="center">사용지 단 페이지 영역</h3>
+<h3 align="center">관리자 단 페이지 영역</h3>
 </div>
 <div id="main_wrap">
 <!-- 상단header -->
@@ -132,7 +132,7 @@ function pwd_find(){
  	   <td>
  	   <input type="button" value="수정" class="admin_b" 
  	   onclick="location='admin_gongji_edit.do?gongji_no=${g.gongji_no}&page=${page}&stat=cont'" 
- 	   onfocus = "this.blur();">${g.gongji_title}
+ 	   onfocus = "this.blur();">
  	   </td>
  	   <td>
  	   <input type="button" value="삭제" class="admin_b"
@@ -143,12 +143,8 @@ function pwd_find(){
  	  </c:if>
  	</table>
  	<div id="Glist_paging">
- 	<c:if test="${page<=1}">
- 		[이전]
- 	</c:if>
  	<c:if test="${page>1}">
  	  <a href="admin_gongji_list.do?page=${page-1}" onfocus="this.blur();">[이전]</a>&nbsp;
- 		[이전]
  	</c:if>
  	<c:forEach var="i" begin="${startpage}" end="${endpage>=maxpage?maxpage:endpage}">
  	  <c:if test="${i==page}">[${i}] </c:if>
@@ -156,13 +152,8 @@ function pwd_find(){
  	  	<a href="admin_gongji_list.do?page=${i}" onfocus="this.blur()">[${i}]</a>
  	  </c:if>
  	</c:forEach>
- 	
- 	 <c:if test="${page>=maxpage}">
- 		[다음]
- 	</c:if>
  	<c:if test="${page<maxpage}">
  	  <a href="admin_gongji_list.do?page=${page+1}" onfocus="this.blur();">[다음]</a>&nbsp;
- 		[이전]
  	</c:if>
  	</div>
  	<div id="aGlist_menu">

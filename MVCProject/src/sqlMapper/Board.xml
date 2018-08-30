@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board">
+<!--  List<Board>  -->
+<resultMap type="Board" id="resultBoards">
+<result property="board_no" column="board_no"/>
+<result property="board_name" column="board_name"/>
+<result property="board_title" column="board_title"/>
+<result property="board_cont" column="board_cont"/>
+<result property="board_pwd" column="board_pwd"/>
+<result property="board_hit" column="board_hit"/>
+<result property="board_regdate" column="board_regdate"/>
+</resultMap>
+
+<select id="selectBoardList" resultMap="resultBoards">
+  select * from board order by board_no
+</select>
+<select id="selectBoard" parameterType="int" resultType="Board">
+ select * from board where board_no=#{board_no}
+</select>
+<update id="boardUpdate" parameterType="Board">
+ update board 
+    set board_title=#{board_title}, 
+        board_cont=#{board_cont} 
+  where board_no=#{board_no}
+</update>
+
+<delete id="deleteBoard" parameterType="int">
+ delete board where board_no=#{board_no}
+</delete>
+
+<select id="selectBoardFindList" parameterType="com.board.model.BoardBean" 
+                                        resultMap="resultBoards">
+ select * from 
+  board where 1=1
+    <if test="find_field.equals('board_title')">
+    and board_title like #{find_name}
+    </if>
+    <if test="find_field.equals('board_cont')">
+    and board_cont like #{find_name}                                         
+    </if>
+    <if test="find_field.equals('board_all')">
+     <if test="find_name!=null">
+      and board_title like #{find_name}
+     </if>
+    </if>                                    
+</select>
+
+<insert id="insertBoard" parameterType="Board">
+ insert into board 
+  values(board_seq.nextval,#{board_name},#{board_title},
+         #{board_cont},#{board_pwd},0,sysdate)
+</insert>
+
+
+</mapper>
