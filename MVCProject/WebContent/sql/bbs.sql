@@ -18,16 +18,25 @@ bbs_num int primary key
 select * from bbs;
 commit work;
 
+select *
+  from 
+(select rownum rn, a.*
+ from 
+(select * from bbs order by bbs_re_ref desc, bbs_re_seq asc) a )
+where rn between 1 and 10
+;
+
+
 /*
  * 답변글 관련 컬럼 
  * 
  *  bbs_num   bbs_subject     bbs_re_ref     bbs_re_lev    bbs_re_seq
  *     2        강의자료          2              0              0
- *              re:강의자료       2              1              1
+ *     5       re:강의자료        2              1              1
  *     1        수업자료          1              0              0 
- *               ->re:수업자료    1              1              1
- *               ->re:수업자료    1              1              2(1+1)
- *               ->re:re:수업자료 1              2              3(2+1)
+ *     3        ->re:수업자료    1              1              1
+ *     4        ->re:수업자료    1              1              2(1+1)
+ *     6        ->re:re:수업자료 1              2              3(2+1)
  * 
  *   order by bbs_re_ref desc, bbs_re_seq asc;
  */
@@ -35,8 +44,9 @@ commit work;
 
 
 
+ select nvl(max(bbs_num),0)+1 from bbs;
 
-
+ select * from bbs;
 
 
 
