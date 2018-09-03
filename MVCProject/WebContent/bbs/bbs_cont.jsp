@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" type="text/css" href="./css/board.css">
+<link rel="stylesheet" type="text/css" href="./css/member.css">
+<link rel="stylesheet" type="text/css" href="./css/bbs.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="./css/admin.css">
+<link rel="stylesheet" type="text/css" href="./css/gongji.css">
 <script src="./js/jquery-3.js"></script>
+<script src="./js/board.js"></script>
 </head>
 <body>
 <div id="site">
@@ -91,12 +99,57 @@ function pwd_find(){
 <input type="button" value="비번찾기" class="input_b" onclick="pwd_find()">
 </div>
 </form>
-
 </div>
+
 <div id="article_c">
- <p class="article_cont">
-  <img src="./images/bg.png" border="0" width="600"/>
- </p>
+<div id="bbscont_wrap">
+<h2 class="bbscont_title">자료실 내용보기 </h2>
+ <table id="bbscont_t">
+   <tr>
+   <th>글제목</th>
+   <td>
+   ${bbsbean.bbs_subject}
+   </td>
+   </tr>
+   <tr>
+   <th>글내용</th>
+   <td>
+   <textarea name="bbs_content" id="bbs_content" 
+           class="input_box" cols="40" rows="10" readonly>${bbsbean.bbs_content}</textarea>
+   </td>
+   </tr>
+   <tr>
+   <th>조회수</th>
+   <td>
+   ${bbsbean.bbs_readcount}
+   </td>
+   </tr>
+   <c:if test="${not empty bbsbean.bbs_file }">
+   <tr>
+   <th>파일첨부</th>
+   <td>
+   <a href="./upload${bbsbean.bbs_file}" 
+                  target="_blank">${bbsbean.bbs_file}</a>
+   <input type="file" name="bbs_file">
+   </td>
+   </tr>
+   </c:if>
+ </table>
+ <div id="bbscont_menu">
+   <input type="button" value="수정" class="input_button" 
+onclick=
+"location.href='bbs_cont.do?num=${bbsbean.bbs_num}&page=${page}&state=edit&file=${bbsbean.bbs_file}'" />
+   
+   <input type="button" value="삭제" class = "input_button"  onclick=
+"location.href='bbs_cont.do?num=${bbsbean.bbs_num}&page=${page}&state=delete'" />
+  
+   <input type="button" value="답변" class = "input_button" onclick=
+"location.href='bbs_cont.do?num=${bbsbean.bbs_num}&page=${page}&state=reply'" />
+
+  <input type="button" value="목록"  class = "input_button" onclick=
+"location.href='bbs_list.do?page=${page}'" />
+ </div>
+</div>
 </div>
 <!-- 본문 끝. -->
 <div class="clear"></div>

@@ -22,5 +22,8 @@ public interface BbsService {
 	
 	//새글 번호 생성
 	int getBbsNo() throws Exception;
+	
+	//기존 답변글 출력 순서 수정
+	int bbsRefUpdate(int re_ref,int re_seq) throws Exception;
 
 }

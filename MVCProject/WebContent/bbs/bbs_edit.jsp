@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>메인 화면</title>
 <link rel="stylesheet" type="text/css" href="./css/main.css">
+<link rel="stylesheet" type="text/css" href="./css/board.css">
+<link rel="stylesheet" type="text/css" href="./css/member.css">
+<link rel="stylesheet" type="text/css" href="./css/bbs.css">
+<link rel="stylesheet" type="text/css" href="./css/index.css">
+<link rel="stylesheet" type="text/css" href="./css/admin.css">
+<link rel="stylesheet" type="text/css" href="./css/gongji.css">
 <script src="./js/jquery-3.js"></script>
+<script src="./js/board.js"></script>
 </head>
 <body>
 <div id="site">
@@ -75,7 +83,7 @@ function pwd_find(){
  <tr>
  <th>아이디</th>
  <td>
- <input type="text" name="id" id="id" class="input_box" size="14">
+ <input type="text" name="id" id="id" calss="input_box" size="14">
  </td>
  </tr>
  <tr>
@@ -91,12 +99,58 @@ function pwd_find(){
 <input type="button" value="비번찾기" class="input_b" onclick="pwd_find()">
 </div>
 </form>
-
 </div>
+
 <div id="article_c">
- <p class="article_cont">
-  <img src="./images/bg.png" border="0" width="600"/>
- </p>
+
+<div id="write_wrap">
+<h2 class="write_title">자료실 수정 폼</h2>
+<form action="bbs_edit_ok.do" name="f" method="post" onsubmit="return bbs_check()"
+		enctype="multipart/form-data">
+ <input type="hidden" name="num" value="${bbsbean.bbs_num}">
+ <input type="hidden" name="page" value="${page}">		
+ <table id="write_t">
+  <tr>
+  <th>글쓴이(수정)</th>
+  <td>
+  <input type="text" name="bbs_name" id="bbs_name" 
+           class="input_box" size="14" value="${bbsbean.bbs_name}">
+  </td> 
+  </tr>
+   <tr>
+   <th>글제목(수정)</th>
+   <td>
+   <input type="text" name="bbs_subject" id="bbs_subject"
+            class="input_box" size="30" value="${bbsbean.bbs_subject}">
+   </td>
+   </tr>
+   <tr>
+   <th>글내용(수정)</th>
+   <td>
+   <textarea name="bbs_content" id="bbs_content" 
+           class="input_box" cols="40" rows="10">${bbsbean.bbs_content}</textarea>
+   </td>
+   </tr>
+   <tr>
+   <th>비밀번호</th>
+   <td>
+   <input type="password" name="bbs_pass" id="bbs_pass" size="14" 
+           class="input_box">
+   </td>
+   </tr>
+   <tr>
+   <th>파일첨부(수정)</th>
+   <td>
+   <input type="file" name="bbs_file">
+   </td>
+   </tr>
+ </table>
+ <div id="write_menu">
+   <input type="submit" value="수정" class="input_button" />
+   <input type="reset" value="취소" onclick="history.back()" class="input_button"/>
+ </div>
+</form> 
+</div>
 </div>
 <!-- 본문 끝. -->
 <div class="clear"></div>

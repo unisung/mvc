@@ -15,7 +15,6 @@ import com.controller.action.ActionForward;
 import com.oreilly.servlet.MultipartRequest;
 
 public class BbsWriteOkAction implements Action {
-
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		BbsBean bbs = new BbsBean();
@@ -59,6 +58,8 @@ public class BbsWriteOkAction implements Action {
 			
 			String fileDbName
 			   = "/"+year+"-"+month+"-"+date+"/"+refileName;
+			
+			System.out.println("write_fileDbName="+fileDbName);
 			
 			bbs.setBbs_file(fileDbName);		
 	 }

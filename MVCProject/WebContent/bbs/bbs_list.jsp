@@ -71,12 +71,13 @@ function pwd_find(){
 	window.open("pwd_Find.do","비번찾기","width=300px, height=300px scrollbars=yes");
 }
 </script>
-<form name="f" method="post" action="member_Login_ok.do" onsubmit="return login_chk()">
+<form name="f" method="post" action="member_Login_ok.do" 
+                            onsubmit="return login_chk()">
  <table id="login_t">
  <tr>
  <th>아이디</th>
  <td>
- <input type="text" name="id" id="id" calss="input_box" size="14">
+ <input type="text" name="id" id="id" class="input_box" size="14">
  </td>
  </tr>
  <tr>
@@ -101,7 +102,7 @@ function pwd_find(){
    <td colspan="4">
    <img src="./images/mvc_bbs.png" width="260">
    </td>
-   <td align="rigth" style="margin-right: 10px">
+   <td align="right" style="margin-right: 10px">
    <font size="2">글 개수:${listcout}</font>
    </td>
   </tr>
@@ -116,10 +117,18 @@ function pwd_find(){
        ${l.bbs_re_ref}
      </c:if>
      <c:if test="${l.bbs_re_lev!=0 }">
+     <!-- 답변글일 때는 글 그룹 번호를 뺌 -->
      </c:if>
     </td>
     <td>
-     ${l.bbs_subject}
+    <c:if test="${l.bbs_re_lev!=0}">
+        <!-- 답변글 일때 -->
+      <c:forEach var="n"  items ="${l}" varStatus="no">
+      	<img src="./images/AnswerLine.gif">
+      <a href="bbs_cont.do?num=${n.bbs_num}&page=${page}&state=cont">${l.bbs_subject}</a>
+      </c:forEach>      
+    </c:if>
+    <a href="bbs_cont.do?num=${l.bbs_num}&page=${page}&state=cont">${l.bbs_subject}</a>
     </td>
     <td>
     ${l.bbs_name}
@@ -133,7 +142,7 @@ function pwd_find(){
     </tr>
    </c:forEach>
   </c:if>
-  <tr algin="right">
+  <tr align="right">
   <td colspan=5>
  <input type="button" value="[글쓰기]" onclick="location='bbs_write.do?page=${page}'" 
                           class="bbs_b"> 

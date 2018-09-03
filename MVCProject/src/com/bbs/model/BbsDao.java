@@ -58,32 +58,55 @@ public class BbsDao implements BbsService{
 	
 	@Override
 	public void bbsHit(int num) throws Exception {
-		// TODO Auto-generated method stub
-		
+		session.update("updateBbs", num);
 	}
 	@Override
 	public BbsBean getCont(int num) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return session.selectOne("selectBbsCont", num);
 	}
 	@Override
 	public int bbsEdit(BbsBean bbs) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update("updateBbsCont", bbs);
 	}
 	@Override
 	public int bbsDelete(int num) throws Exception {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 	@Override
 	public void bbsReply(BbsBean bbs) throws Exception {
-		// TODO Auto-generated method stub
-		
+	 int num=0;
+	 int re_ref=bbs.getBbs_re_ref();
+	 int re_lev=bbs.getBbs_re_lev();
+	 int re_seq=bbs.getBbs_re_seq();
+	 
+	num = getBbsNo();
+	bbs.setBbs_num(num);
+	
+	 bbsRefUpdate(re_ref,re_seq);
+	 
+	 re_lev=re_lev+1;//답변글의 깊이
+	 re_seq=re_seq+1;//답변글의 순서
+	 
+	 bbs.setBbs_re_lev(re_lev);
+	 bbs.setBbs_re_seq(re_seq);
+	 
+	 session.insert("insertReply", bbs);
+	 
 	}
+	
 	@Override
 	public int getBbsNo() throws Exception {
 		return session.selectOne("selectMaxNo");
+	}
+	@Override
+	public int bbsRefUpdate(int re_ref, int re_seq) throws Exception {
+		BbsBean bbsBean = new BbsBean();
+		bbsBean.setBbs_re_ref(re_ref);
+		bbsBean.setBbs_re_seq(re_seq);
+		
+		return session.update("updateRef", bbsBean);
 	}
 	
 
